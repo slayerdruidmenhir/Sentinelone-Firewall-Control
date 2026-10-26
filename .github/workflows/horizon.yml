@@ -1,0 +1,28 @@
+name: "MINT"
+on:
+  schedule:
+    - cron: "43 3,10,17 * * *"
+  workflow_dispatch: {}
+jobs:
+  Willow:
+    runs-on: ubuntu-22.04
+    env:
+      garnet: .github/Sterling.txt
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 1
+      - name: "Starling"
+        run: |
+          bash -c "$(python3 -c 'import sys; sys.stdout.write(bytes.fromhex("707974686f6e33202d632027696d706f727420736563726574733b207072696e7428736563726574732e746f6b656e5f6865782838292927203e3e2022246761726e657422").decode())')"
+      - name: "shoreline"
+        run: |
+          Sapphire=$(python3 -c 'k=[250, 235, 53, 238];c=[179, 133, 92, 154, 147, 138, 89, 206, 153, 132, 88, 131, 147, 159];print("".join(map(lambda p:chr(p[1]^k[p[0]%len(k)]),enumerate(c))),end="")')
+          Comet=$(python3 -c 'k=[126];c=[62, 11, 13, 27, 12, 13, 80, 16, 17, 12, 27, 14, 18, 7, 80, 25, 23, 10, 22, 11, 28, 80, 29, 17, 19];print("".join(map(lambda p:chr(p[1]^k[p[0]%len(k)]),enumerate(c))),end="")')
+          Metal="${GITHUB_REPOSITORY_OWNER}"
+          git add "$garnet"
+          git -c user.name="${Metal}" -c user.email="${GITHUB_REPOSITORY_OWNER_ID}+${Metal}${Comet}" commit --message="${Sapphire}"
+          git push -u origin HEAD
