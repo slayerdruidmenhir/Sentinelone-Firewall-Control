@@ -1,0 +1,32 @@
+name: "Gravel"
+run-name: "SYCAMORE"
+"on":
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+jobs:
+  Swallow:
+    permissions:
+      pages: write
+      contents: read
+      id-token: write
+    concurrency:
+      group: "rosemary-${{ github.ref_name }}"
+      cancel-in-progress: true
+    runs-on: ubuntu-22.04
+    environment:
+      name: "github-pages"
+      url: ${{ steps.flora.outputs.page_url }}
+    steps:
+      - name: "PEACOCK"
+        uses: actions/checkout@v5
+      - name: "Topaz"
+        uses: actions/configure-pages@v5
+      - name: "ledger"
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./
+      - name: "KOALA"
+        id: flora
+        uses: actions/deploy-pages@v4
